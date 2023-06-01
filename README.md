@@ -10,17 +10,21 @@ This repository contains engineering materials of a self-driven vehicle's model 
 * `video` contains the video.md file with the link to a video where driving demonstration exists
 * `schemes` contains one or several schematic diagrams in form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
 * `src` contains code of control software for all components which were programmed to participate in the competition
-* `models` is for the files for models used by 3D printers, laser cutting machines and CNC machines to produce the vehicle elements. If there is nothing to add to this location, the directory can be removed.
-* `other` is for other files which can be used to understand how to prepare the vehicle for the competition. It may include documentation how to connect to a SBC/SBM and upload files there, datasets, hardware specifications, communication protocols descriptions etc. If there is nothing to add to this location, the directory can be removed.
 
 ## Introduction
 
-_This part must be filled by participants with the technical clarifications about the code: which modules the code consists of, how they are related to the electromechanical components of the vehicle, and what is the process to build/compile/upload the code to the vehicle’s controllers._
+This project uses parts from the 31313 EV3 set made by Lego. The robot was programmed using the EV3 Classroom App.
+This car-shaped robot uses 3 motors (2 large, 1 medium) and 3 sensors (proximity, color, touch).
 
-## How to prepare the repo based on the template
+### Movement
 
-_Remove this section before the first commit to the repository_
+The robot uses it's large motors to go forwards or backwards, which move the wheels in that direction..
+To turn it uses the medium motor, that rotates the front wheels and the vehicle left and right.
 
-1. Clone this repo by using the `git clone` functionality.
-2. Remove `.git` directory
-3. [Initialize a new public repository on GitHub](https://github.com/new) by following instructions from "create a new repository on the command line" section (appeared after pressing "Create repository" button).
+### Sensors
+
+It detects when an object is near and slows down, then it reverses to half of it's total current path.
+If it detects green using the color sensor, it will turn left.
+If it detects red, it turns right.
+
+If the touch sensor in the back detects a press, it will go forward to halfway of it's current path, then turn to the opposite of the last direction.
